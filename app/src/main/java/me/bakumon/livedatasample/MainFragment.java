@@ -31,7 +31,7 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        MainViewModel mainViewModel = new MainViewModel();
+        final MainViewModel mainViewModel = new MainViewModel();
 
         mainViewModel.getProducts().observe(this, new Observer<MainEntry>() {
             @Override
@@ -42,9 +42,14 @@ public class MainFragment extends Fragment {
             }
         });
 
+        mBinding.btnSetValue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainEntry entry = new MainEntry();
+                entry.name = "changed";
+                mainViewModel.getProducts().setValue(entry);
+            }
+        });
 
-        MainEntry entry = new MainEntry();
-        entry.name = "changed";
-        mainViewModel.getProducts().setValue(entry);
     }
 }
