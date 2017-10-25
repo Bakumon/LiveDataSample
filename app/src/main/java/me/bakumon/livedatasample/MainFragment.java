@@ -38,8 +38,8 @@ public class MainFragment extends Fragment {
         // ♥♥ 1. 这里必须使用 ViewModelProviders.of(this).get 的方式创建 ViewModel，
         //       否则该 ViewModel 不会和activity或fragment的声明周期关联，ViewModel#onCleared 方法不会被调用
         // ♥♥ 2. of 方法的参数，如果是 getActivity()，将会和宿主 activity 共享一个 ViewModel
-        final MainViewModel mainViewModel = //new MainViewModel();
-        ViewModelProviders.of(this).get(MainViewModel.class);
+//        final MainViewModel mainViewModel = new MainViewModel();
+        final MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         mainViewModel.getProducts().observe(this, new Observer<MainEntry>() {
             @Override

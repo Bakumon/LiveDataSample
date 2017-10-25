@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // ♥ 这里 LifecycleObserver 仅作为一个工具类来使用，不在架构中直接使用，
-        // 由 LiveData 内部调用实现感知 Activity 和 Fragment 的声明周期
+        // 由 LiveData 内部调用实现感知 Activity 和 Fragment 的生命周期
 
         // 使用 LifecycleObserver 管理该 Activity 的生命周期
         MyLifecycleObserver observer = new MyLifecycleObserver(getLifecycle());
